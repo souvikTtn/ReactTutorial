@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Contact from "./Contact";
+import {Consumer} from "../Context";
 
 class Contacts extends Component {
     //this is one way of adding state
@@ -29,7 +30,7 @@ class Contacts extends Component {
         }
     }*/
     //another way of adding state to a class
-    state = {
+    /*state = {
         contacts: [
             {
                 id: 1,
@@ -50,7 +51,7 @@ class Contacts extends Component {
                 phoneNo: '9716330983'
             }
         ]
-    };
+    };*/
 
     deleteContact(id){
         const filteredContact=this.state.contacts.filter(contact=>
@@ -61,19 +62,34 @@ class Contacts extends Component {
     }
 
     render() {
-        const {contacts} = this.state;
+        return(
+            <Consumer>
+                {value=>{
+                    const {contacts}=value;
+                    return (
+                        <React.Fragment>
+                            {contacts.map(contact => (
+                                <Contact key={contact.id} contact={contact} onDeleteClickHandler={this.deleteContact.bind(this,contact.id)}/>
+                            ))}
+                        </React.Fragment>
+                    );
+                }}
+            </Consumer>
+        );
+
+       /* const {contacts} = this.state;
         return (
-            /*<div>
+            /!*<div>
                 {contacts.map(contact => (
                     <Contact key={contact.id} fullName={contact.fullName} emailId={contact.emailId} phoneNo={contact.phoneNo}/>
                 ))}
-            </div>*/
+            </div>*!/
             <React.Fragment>
                 {contacts.map(contact => (
                     <Contact key={contact.id} contact={contact} onDeleteClickHandler={this.deleteContact.bind(this,contact.id)}/>
                 ))}
             </React.Fragment>
-        );
+        );*/
     }
 }
 
