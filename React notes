@@ -1,0 +1,56 @@
+React notes
+create-react-app
+npm start to start react app
+
+package.json is a manifest file (it contains all the dependencies)
+
+a component is a JavaScript class or function that optionally accepts inputs i.e. properties(props) and returns a React element that describes how a section of the UI (User Interface) should appear
+
+Component is a class that is present in React Library
+
+states are nothing but data attached to that component
+
+stateless components can be creted by using functional components
+
+jsx is a javascript extension that allows us to put html inside our javascript 
+rules related to jsx
+1)we cannot use class attribute we have to use className 
+2) we cannot use 'for' attribute in that case we use htmlFor
+3) self enclosing tags must be ended with /
+4) we can return only a single parent element
+in jsx
+return (
+            <div className="App">
+                <h1>The App Component</h1>
+            </div>
+        );
+
+its equivalent javascript is
+
+React.createElement('div',{className :'App'},
+React.createElement('h1',null,'the app component')
+);
+any javascript can go inside {} 
+
+rcc generate a class based components
+rsc generate a function based component
+
+sometimes we need to pass data to a component this can be done using props
+PROPS are nothing but properties
+
+bootstrap/dist/css/bootsrap.min.css
+we have to bind this if we need to use this inside our defined functions
+if we use arrow function we dont need to bind this 
+to pass some parameter we have to bind this and then after that we need to  pass the 
+
+if we want a sudo element ie an element which is not to be added to the dom we can use React.Fragment 
+
+A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+ states in a class are immutable 
+ we cant directly mutate states
+ in that case we need to use setState
+
+ in order to delete something from a parent component using child component we need to add a handler and pass it as prop to parent component, and the prop will have function reference of the parent component
+
+using context api we can put our application states in a single place
+in  this way very component will access states from a single location 
