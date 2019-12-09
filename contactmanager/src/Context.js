@@ -1,6 +1,20 @@
 import React, {Component} from 'react';
 
 const Context = React.createContext();
+const reducer = (state, action) => {
+    //an action has a type and payload
+    switch (action.type) {
+        case 'DELETE_CONTACT':
+            return {
+                ...state, contacts: state.contacts.filter(contact =>
+                    contact.id !== action.payload
+                )
+            };
+        default:
+            return state
+    }
+
+};
 
 //this is where all the states of the application will reside
 export class GlobalStates extends Component {
@@ -24,7 +38,11 @@ export class GlobalStates extends Component {
                 emailId: 'csoshanka@yahoo.com',
                 phoneNo: '9716330983'
             }
-        ]
+        ],
+        dispatch: action => {
+            //this.setState(state => reducer(state, action))
+            this.setState(reducer(this.state, action))
+        }
     };
 
     render() {
@@ -37,4 +55,4 @@ export class GlobalStates extends Component {
     }
 }
 
-export const Consumer=Context.Consumer;
+export const Consumer = Context.Consumer;

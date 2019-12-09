@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import Contacts from './components/Contacts'
-import Header from './components/Header'
+import Contacts from './components/contact/Contacts'
+import Header from './components/layout/Header'
 import 'bootstrap-4.1.3/dist/css/bootstrap.min.css'
 import {GlobalStates} from "./Context";
 //class based component

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Contact from "./Contact";
-import {Consumer} from "../Context";
+import {Consumer} from "../../Context";
 
 class Contacts extends Component {
     //this is one way of adding state
@@ -53,23 +53,25 @@ class Contacts extends Component {
         ]
     };*/
 
-    deleteContact(id){
+    /*deleteContact(id){
         const filteredContact=this.state.contacts.filter(contact=>
             contact.id !==id);
         this.setState({
             contacts:filteredContact
         })
-    }
+    }*/
 
     render() {
-        return(
+        return (
             <Consumer>
-                {value=>{
-                    const {contacts}=value;
+                {value => {
+                    const {contacts} = value;
                     return (
                         <React.Fragment>
                             {contacts.map(contact => (
-                                <Contact key={contact.id} contact={contact} onDeleteClickHandler={this.deleteContact.bind(this,contact.id)}/>
+                                // <Contact key={contact.id} contact={contact}
+                                // onDeleteClickHandler={this.deleteContact.bind(this,contact.id)}/>
+                                <Contact key={contact.id} contact={contact}/>
                             ))}
                         </React.Fragment>
                     );
@@ -77,19 +79,19 @@ class Contacts extends Component {
             </Consumer>
         );
 
-       /* const {contacts} = this.state;
-        return (
-            /!*<div>
-                {contacts.map(contact => (
-                    <Contact key={contact.id} fullName={contact.fullName} emailId={contact.emailId} phoneNo={contact.phoneNo}/>
-                ))}
-            </div>*!/
-            <React.Fragment>
-                {contacts.map(contact => (
-                    <Contact key={contact.id} contact={contact} onDeleteClickHandler={this.deleteContact.bind(this,contact.id)}/>
-                ))}
-            </React.Fragment>
-        );*/
+        /* const {contacts} = this.state;
+         return (
+             /!*<div>
+                 {contacts.map(contact => (
+                     <Contact key={contact.id} fullName={contact.fullName} emailId={contact.emailId} phoneNo={contact.phoneNo}/>
+                 ))}
+             </div>*!/
+             <React.Fragment>
+                 {contacts.map(contact => (
+                     <Contact key={contact.id} contact={contact} onDeleteClickHandler={this.deleteContact.bind(this,contact.id)}/>
+                 ))}
+             </React.Fragment>
+         );*/
     }
 }
 
