@@ -4,6 +4,8 @@ import Contacts from './components/contact/Contacts'
 import Header from './components/layout/Header'
 import 'bootstrap-4.1.3/dist/css/bootstrap.min.css'
 import {GlobalStates} from "./Context";
+import AddContact1 from "./components/contact/AddContact1"
+import AddContact from "./components/contact/AddContact"
 //class based component
 class App extends Component {
     render() {
@@ -33,6 +35,8 @@ class App extends Component {
                 <Contact fullName="Mrinal Chakraborty" emailId="mcc40@gmail.com" phoneNo="9716330986"/>
                 <Contact fullName="Sonali Chakraborty" emailId="soc40@gmail.com" phoneNo="9716330987"/>
                 <Contact fullName="Dulal Chakraborty" emailId="dc40@gmail.com" phoneNo="9716330988"/>*/}
+                {/*<AddContact1/>*/}
+                <AddContact/>
                 <Contacts/>
                 </div>
             </div>
