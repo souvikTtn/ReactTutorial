@@ -3,6 +3,16 @@ import Contact from "./Contact";
 import {Consumer} from "../../Context";
 
 class Contacts extends Component {
+  /*  componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => this.setState({
+                contact:data
+                }, () => console.log(this.state.contact))
+                //console.log(data)
+            );
+    }*/
+
     //this is one way of adding state
     /*constructor() {
         super();
@@ -95,4 +105,5 @@ class Contacts extends Component {
          );*/
     }
 }
+
 export default Contacts;

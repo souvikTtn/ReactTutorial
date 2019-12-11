@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios'
 
 const Context = React.createContext();
 const reducer = (state, action) => {
@@ -12,7 +13,7 @@ const reducer = (state, action) => {
             };
         case 'ADD_CONTACT':
             return {
-                ...state, contacts: [action.payload,...state.contacts]
+                ...state, contacts: [action.payload, ...state.contacts]
             };
         default:
             return state
@@ -22,9 +23,36 @@ const reducer = (state, action) => {
 
 //this is where all the states of the application will reside
 export class GlobalStates extends Component {
+    async componentDidMount() {
+        /*axios.get('https://jsonplaceholder.typicode.com/users')
+            .then((response) => {
+                response.data.map((itr) => {
+                    this.setState({
+                        contacts: [...this.state.contacts, {
+                            id: itr.id,
+                            fullName: itr.name,
+                            emailId: itr.email,
+                            phoneNo: itr.phone
+                        }]
+                    });
+                });
+            });*/
+        const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+        response.data.map((itr) => {
+            this.setState({
+                contacts: [...this.state.contacts, {
+                    id: itr.id,
+                    fullName: itr.name,
+                    emailId: itr.email,
+                    phoneNo: itr.phone
+                }]
+            });
+        })
+    }
+
     state = {
         contacts: [
-            {
+            /*{
                 id: 1,
                 fullName: 'Souvik Chakraborty',
                 emailId: 'souvikc40@gmail.com',
@@ -41,7 +69,7 @@ export class GlobalStates extends Component {
                 fullName: 'Soshanka Chakraborty',
                 emailId: 'csoshanka@yahoo.com',
                 phoneNo: '9716330983'
-            }
+            }*/
         ],
         dispatch: action => {
             //this.setState(state => reducer(state, action))

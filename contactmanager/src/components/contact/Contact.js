@@ -5,7 +5,6 @@ import {Consumer} from "../../Context";
 /*
 import './Contact.css' ;
 */
-
 class Contact extends Component {
     static propTypes = {
         /* fullName: PropTypes.string.isRequired,
